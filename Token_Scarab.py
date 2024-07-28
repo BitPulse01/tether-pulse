@@ -46,7 +46,8 @@ def Scrab_tokenbaz():
             "Buy_amount" : Buy_amount_text,
             "Sell_price" : Sell_price_text,
             "Sell_amount" : Sell_amount_text,
-            "Wage" : Wage_text
+            "Wage" : Wage_text,
+            "Profit": PROFIT_TEXT
         }
 
         INFOR.append(INFO)

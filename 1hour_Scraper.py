@@ -15,7 +15,7 @@ class database_controller:
         self.DATABASE.database = "tokenbaz_cache"
 
         self.CURSOR.execute("""CREATE TABLE IF NOT EXISTS info (
-                       id INT AUTO_INCREMENT PRIMARY KEY, datetime MEDIUMTEXT, Name_And_Type VARCHAR(255), Buy_Price VARCHAR(255), Buy_Amount VARCHAR(255), Sell_Price VARCHAR(255), Sell_Amount VARCHAR(255), Wage VARCHAR(255))""")
+                       id INT AUTO_INCREMENT PRIMARY KEY, datetime MEDIUMTEXT, Name_And_Type VARCHAR(255), Buy_Price VARCHAR(255), Buy_Amount VARCHAR(255), Sell_Price VARCHAR(255), Sell_Amount VARCHAR(255), Wage VARCHAR(255), Profit VARCHAR(255))""")
         
         print(Fore.GREEN + "DATABASE AND TABLES CREATED SUCCESSFULLY ✅")
 
@@ -29,9 +29,10 @@ class database_controller:
             Sell_Price = DataDict.get("Sell_price", None).replace("📈", "*", -1)
             Sell_Amount = DataDict.get("Sell_amount", None)
             Wage = DataDict.get("Wage", None)
-        
-            SQL_CODE = "INSERT INTO info (datetime, Name_And_Type, Buy_Price, Buy_Amount, Sell_Price, Sell_Amount, Wage) VALUES (NOW(), %s, %s, %s, %s, %s, %s)"
-            VALUES = (Name_and_type, Buy_Price, Buy_Amount, Sell_Price, Sell_Amount, Wage)
+            Profit = DataDict.get("Profit", None)
+
+            SQL_CODE = "INSERT INTO info (datetime, Name_And_Type, Buy_Price, Buy_Amount, Sell_Price, Sell_Amount, Wage, Profit) VALUES (NOW(), %s, %s, %s, %s, %s, %s, %s)"
+            VALUES = (Name_and_type, Buy_Price, Buy_Amount, Sell_Price, Sell_Amount, Wage, Profit)
 
             self.CURSOR.execute(SQL_CODE, VALUES)
 
