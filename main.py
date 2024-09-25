@@ -6,7 +6,7 @@ import time
 bot = telebot.TeleBot(API_KEY)
 
 channel_id = "@tether_pulse"
-admin_id = 836821716 
+admin_id = "YOUR ADMIN ID" 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
